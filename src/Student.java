@@ -1,10 +1,9 @@
-public class Students {
+public class Student {
     private String name;
     private int phone;
-    private String direction;
     private int group;
 
-    public Students(String name, int phone, int group) {
+    public Student(String name, int phone, int group) {
         this.name = name;
         this.phone = phone;
         this.group = group;
@@ -24,14 +23,6 @@ public class Students {
 
     public void setPhone(int phone) {
         this.phone = phone;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
     }
 
     public int getGroup() {

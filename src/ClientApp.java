@@ -14,8 +14,8 @@ import java.util.Scanner;
                 DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 while (true) {
-                    System.out.println("Выберите пункт меню: 1 - добавить студента \n 2 - удалить студента \n" +
-                            "3 - показать группу \n 0 - выход.");
+                    System.out.println("Выберите пункт меню:\n1 - добавить учащегося\n2 - удалить учащегося\n" +
+                            "3 - показать класс\n0 - выход.");
                     String request = scanner.nextLine();
                     dataOutputStream.writeUTF(request);
                     if (request.equals("0"))
@@ -29,9 +29,7 @@ import java.util.Scanner;
                 e.printStackTrace();
 
             }
-            finally{
-                scanner.close();
-            }
+
         }
     }
 

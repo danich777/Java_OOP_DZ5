@@ -14,7 +14,7 @@ public class ServerApp {
             DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
             DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
 
-            University gb = new University();
+            School school = new School();
 
             while (true) {
                 String clientRequest = dataInputStream.readUTF();
@@ -23,27 +23,27 @@ public class ServerApp {
                 }
 
                 else if (clientRequest.equals("1")) {
-                    dataOutputStream.writeUTF("Введите имя студента: ");
+                    dataOutputStream.writeUTF("Введите имя учащегося: ");
                     String clientName = dataInputStream.readUTF();
-                    dataOutputStream.writeUTF("Введите номер телефона студента: ");
+                    dataOutputStream.writeUTF("Введите номер телефона учащегося: ");
                     int clientPhone = Integer.parseInt(dataInputStream.readUTF());
-                    dataOutputStream.writeUTF("Введите группу студента: ");
+                    dataOutputStream.writeUTF("Введите класс учащегося: ");
                     int clientGroup = Integer.parseInt(dataInputStream.readUTF());
 
-                    dataOutputStream.writeUTF(gb.listStudent(clientName, clientPhone, clientGroup));
+                    dataOutputStream.writeUTF(school.listStudent(clientName, clientPhone, clientGroup));
 
                 } else if (clientRequest.equals("2")) {
-                    dataOutputStream.writeUTF("Введите имя студента: ");
+                    dataOutputStream.writeUTF("Введите имя учащегося: ");
                     String clientName = dataInputStream.readUTF();
-                    dataOutputStream.writeUTF("Введите номер телефона студента: ");
+                    dataOutputStream.writeUTF("Введите номер телефона учащегося ");
                     int clientPhone = Integer.parseInt(dataInputStream.readUTF());
 
-                    dataOutputStream.writeUTF(gb.delFromList(clientName, clientPhone));
+                    dataOutputStream.writeUTF(school.delFromList(clientName, clientPhone));
 
                 } else if (clientRequest.equals("3")) {
-                    dataOutputStream.writeUTF("Введите номер группы: ");
+                    dataOutputStream.writeUTF("Введите номер класса: ");
                     int clientGroup = Integer.parseInt(dataInputStream.readUTF());
-                    dataOutputStream.writeUTF(gb.getList(clientGroup));
+                    dataOutputStream.writeUTF(school.getList(clientGroup));
 
                 } else {
                     dataOutputStream.writeUTF("Некорректный запрос.");
