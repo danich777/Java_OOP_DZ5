@@ -45,7 +45,18 @@ public class ServerApp {
                     int clientGroup = Integer.parseInt(dataInputStream.readUTF());
                     dataOutputStream.writeUTF(school.getList(clientGroup));
 
-                } else {
+                } else if (clientRequest.equals("4")) {
+                    dataOutputStream.writeUTF("Введите имя учащегося для изменения информации: ");
+                    String clientName = dataInputStream.readUTF();
+                    dataOutputStream.writeUTF("Введите новый номер телефона учащегося: ");
+                    int clientPhone = Integer.parseInt(dataInputStream.readUTF());
+                    dataOutputStream.writeUTF("Введите новый класс учащегося: ");
+                    int clientGroup = Integer.parseInt(dataInputStream.readUTF());
+
+                    dataOutputStream.writeUTF(school.editStudent(clientName, clientPhone, clientGroup));
+                }
+
+                else {
                     dataOutputStream.writeUTF("Некорректный запрос.");
                 }
 

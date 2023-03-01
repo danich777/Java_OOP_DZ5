@@ -15,7 +15,7 @@ import java.util.Scanner;
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 while (true) {
                     System.out.println("Выберите пункт меню:\n1 - добавить учащегося\n2 - удалить учащегося\n" +
-                            "3 - показать класс\n0 - выход.");
+                            "3 - показать класс\n4 - редактировать информацию\n0 - выход.");
                     String request = scanner.nextLine();
                     dataOutputStream.writeUTF(request);
                     if (request.equals("0"))

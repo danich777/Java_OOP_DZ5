@@ -33,12 +33,24 @@ public class School {
         String res = "Учащиеся класса: " + groupNumber + "\n";
         for (Student st : list) {
             if (st.getGroup() == groupNumber) {
-                res += st.getName() + " " + st.getPhone() + "\n";
+                res = st.getName() + " " + st.getPhone() + "\n";
 
             }
 
         }
         return res;
 
+    }
+
+    public String editStudent(String name, int phone, int group) {
+        for (Student st : list) {
+            if (st.getName().equals(name)) {
+                st.setPhone(phone);
+                st.setGroup(group);
+                break;
+            }
+
+        }
+        return "Информация обновлена";
     }
 }
